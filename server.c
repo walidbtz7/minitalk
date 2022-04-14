@@ -11,43 +11,48 @@ int ft_pow(int pow)
     }
     return (n);
 }
-void convert(char *str)
-{
-    int i;
-    int n = 0;
-    int x = 0;
-    while(str[x] != '\0')
+void sig_handler(int signum){
+    static int i = 7;
+    static int n = 0;
+    while (i >= 0)
+    {
+         if(signum == SIGUSR1)
+            n += 1 * ft_pow(i);
+        i--;
+    }
+    if(i == -1)
     {
         i = 7;
-        while (i  >= 0)
-        {
-            n += (str[x]) * ft_pow(i); 
-            ft_printf("%c\n",str[x]);
-            i--;
-            x++;
-        }
+        n = 0;
     }
-    ft_printf("%d",n);
 }
-void sig_handler(int signum){
-    if(signum == SIGUSR1)
-        ft_printf("labas \n");
-    else
-        ft_printf("salam \n");
-}
-// int main()
+// void convert(char *str)
 // {
-//     ft_printf("%d\n",getpid());
-//     signal(SIGUSR2,sig_handler); // Register signal handler
-//     signal(SIGUSR1,sig_handler); //Register signal handler
-//     for(int i=1;;i++)
-//     {    //Infinite loop
-//         sleep(1);  // Delay for 1 secondq
+//     int i;
+//     int n = 0;
+//     int x = 0;
+//     while (str[x] != '\0')
+//     {
+//         i = 7;
+//         n = 0;
+//         while (i  >= 0)
+//         {
+//             if(str[x] == '1')
+//                 n += 1 * ft_pow(i);
+//             i--;
+//             x++;
+//         }
+//         ft_printf("%c",n);
 //     }
-//     return 0;
-//     ft_printf("%d",ft_pow());
 // }
 int main()
 {
-   convert("00001010");
+    ft_printf("%d\n",getpid());
+    signal(SIGUSR2,sig_handler); 
+    signal(SIGUSR1,sig_handler); 
+    while (1)
+    {
+
+    }
+    return 0;
 }
