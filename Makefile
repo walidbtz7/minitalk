@@ -2,9 +2,9 @@ CLIENT    		=   client
 
 SERVER    		=   server
 
-C_SRCS    		=   client.c helpers.c printf.c
+C_SRCS    		=   client.c helpers.c helpersnorm.c
 
-S_SRCS    		=   server.c helpers.c printf.c
+S_SRCS    		=   server.c helpers.c helpersnorm.c
 
 FLAGS 			=	-Wall -Wextra -Werror
 

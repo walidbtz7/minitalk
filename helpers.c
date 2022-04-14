@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   helpers.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wboutzou <wboutzou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/14 20:47:48 by wboutzou          #+#    #+#             */
+/*   Updated: 2022/04/14 20:47:51 by wboutzou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 int	fthexa(unsigned int a, char *base, int b)
@@ -79,30 +91,4 @@ int	ft_putnbr(int a)
 		i += ft_putchar(nb + '0');
 	}
 	return (i);
-}
-
-int	ft_atoi(const char *nptr)
-{
-	unsigned int	e;
-	int				i;
-	int				signe;
-
-	e = 0;
-	signe = 1;
-	i = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
-		|| nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == '\r')
-		i++;
-	if (nptr[i] == 45 || nptr[i] == 43)
-	{
-		if (nptr[i] == 45)
-			signe = -1;
-		i++;
-	}
-	while (nptr[i] >= 48 && nptr[i] <= 57)
-	{
-		e = (e * 10) + (nptr[i] - 48);
-		i++;
-	}
-	return (e * signe);
 }
