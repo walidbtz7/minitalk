@@ -6,7 +6,7 @@
 /*   By: wboutzou <wboutzou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 18:20:55 by wboutzou          #+#    #+#             */
-/*   Updated: 2022/04/14 18:45:47 by wboutzou         ###   ########.fr       */
+/*   Updated: 2022/04/15 00:35:24 by wboutzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	main(int argc, char **argv)
 	pid = ft_atoi(argv[1]);
 	i = 0;
 	if (argc != 3)
-	{
 		return (0);
-	}	
 	while (argv[2][i] != '\0')
 	{
 		j = 7;

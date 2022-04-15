@@ -6,7 +6,7 @@
 /*   By: wboutzou <wboutzou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 18:37:22 by wboutzou          #+#    #+#             */
-/*   Updated: 2022/04/14 20:50:45 by wboutzou         ###   ########.fr       */
+/*   Updated: 2022/04/15 03:46:52 by wboutzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sig_handler(int signum)
 	i--;
 	if (i == -1)
 	{
-		ft_printf("%c", n);
+		write(1, &n, 1);
 		i = 7;
 		n = 0;
 	}
@@ -45,10 +45,13 @@ void	sig_handler(int signum)
 
 int	main(void)
 {
-	ft_printf("%d\n", getpid());
+	ft_putnbr(getpid());
+	write(1, "\n", 1);
 	signal(SIGUSR2, sig_handler);
 	signal(SIGUSR1, sig_handler);
 	while (1)
+	{
 		pause();
+	}
 	return (0);
 }
