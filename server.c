@@ -6,26 +6,12 @@
 /*   By: wboutzou <wboutzou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 18:37:22 by wboutzou          #+#    #+#             */
-/*   Updated: 2022/04/15 03:46:52 by wboutzou         ###   ########.fr       */
+/*   Updated: 2022/04/21 13:07:22 by wboutzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	ft_pow(int pow)
-{
-	int	i;
-	int	n;
-
-	i = 1;
-	n = 1;
-	while (i <= pow)
-	{
-		n *= 2;
-		i++;
-	}
-	return (n);
-}
 
 void	sig_handler(int signum)
 {
@@ -33,7 +19,9 @@ void	sig_handler(int signum)
 	static int	n = 0;
 
 	if (signum == SIGUSR1)
-		n += 1 * ft_pow(i);
+		n |= 1;
+	else if (signum == SIGUSR2)
+		n |= 0;
 	i--;
 	if (i == -1)
 	{
@@ -41,6 +29,8 @@ void	sig_handler(int signum)
 		i = 7;
 		n = 0;
 	}
+	else
+		n =  n << 1;
 }
 
 int	main(void)
@@ -50,8 +40,6 @@ int	main(void)
 	signal(SIGUSR2, sig_handler);
 	signal(SIGUSR1, sig_handler);
 	while (1)
-	{
 		pause();
-	}
 	return (0);
 }
