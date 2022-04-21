@@ -6,7 +6,7 @@
 /*   By: wboutzou <wboutzou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 18:20:55 by wboutzou          #+#    #+#             */
-/*   Updated: 2022/04/21 13:06:35 by wboutzou         ###   ########.fr       */
+/*   Updated: 2022/04/21 13:10:27 by wboutzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 				else
 					kill(pid, SIGUSR2);
 				j--;
-				usleep(50);
+				usleep(50); 
 			}
 			i++;
 		}
